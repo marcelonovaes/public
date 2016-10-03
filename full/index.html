@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/> 
+	<META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
+	<title>Full</title>
+	<script src="https://dl.dropbox.com/u/168392/preview/jquery-1.9.1.js"></script>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;	
+			border: 0;
+		}
+		
+		html, body, .container {
+			width: 1366px;
+			height: 768px;
+			border: 0;
+			padding: 0;
+			line-height: 0;
+			font-size: 0;
+			border: 0;
+			overflow: hidden;
+		}
+		
+		.img_01, .img_02, .img_03 {
+    		/* display: none; */
+    		position: absolute;
+    		top: 0;
+    		left: 0;
+    		background-color: #000;
+		}
+		
+		.galery {
+		    width: 4098px;
+		    height: 768px;
+            background-color: #000;
+		}
+		
+
+        @-webkit-keyframes anim_appearing {
+            0% {
+                z-index: 3;
+                -webkit-transform: scale(0.9) translateX(0px);
+                        transform: scale(0.9) translateX(0px);
+            }
+            
+            99% {
+                z-index: 3;
+            }
+            
+            100% {
+                z-index: 4;
+                -webkit-transform: scale(1) translateX(0px);
+                        transform: scale(1) translateX(0px);
+            }
+        }		
+		
+        @keyframes anim_appearing {
+            0% {
+                z-index: 3;
+                -webkit-transform: scale(0.9) translateX(0px);
+                        transform: scale(0.9) translateX(0px);
+            }
+            
+            99% {
+                z-index: 3;
+            }
+            
+            100% {
+                z-index: 4;
+                -webkit-transform: scale(1) translateX(0px);
+                        transform: scale(1) translateX(0px);
+            }
+        }		
+
+        @-webkit-keyframes img_opacity {
+            0% {
+                opacity: 0.7;
+            }
+            
+            100% {
+                opacity: 1;
+            }
+        }		
+		
+        @keyframes img_opacity {
+            0% {
+                opacity: 0.7;
+            }
+            
+            100% {
+                opacity: 1;
+            }
+        }		
+
+		
+        @-webkit-keyframes anim_leaving {
+            0% {
+                -webkit-transform: scale(1) translateX(0px);
+                        transform: scale(1) translateX(0px);
+            }
+
+            100% {
+                -webkit-transform: scale(1) translateX(-1366px);
+                        transform: scale(1) translateX(-1366px);
+            }
+        }		
+		
+        @keyframes anim_leaving {
+            0% {
+                -webkit-transform: scale(1) translateX(0px);
+                        transform: scale(1) translateX(0px);
+            }
+
+            100% {
+                -webkit-transform: scale(1) translateX(-1366px);
+                        transform: scale(1) translateX(-1366px);
+            }
+        }		
+		
+        @-webkit-keyframes anim_last {
+            0% {
+                -webkit-transform: translateX(-1366px);
+                        transform: translateX(-1366px);
+            }
+
+            100% {
+                -webkit-transform: translateX(0px);
+                        transform: translateX(0px);
+            }
+        }		
+		
+        @keyframes anim_last {
+            0% {
+                -webkit-transform: translateX(-1366px);
+                        transform: translateX(-1366px);
+            }
+
+            100% {
+                -webkit-transform: scale(0.9) translateX(0px);
+                        transform: scale(0.9) translateX(0px);
+            }
+        }		
+		
+		.appearing {
+    		z-index: 4;
+        	-webkit-animation-name: anim_appearing;
+        	-webkit-animation-duration: 1s;
+        	-webkit-animation-timing-function: cubic-bezier(0.49, 0.06, 0.13, 0.95) 0.7s;
+                	animation-name: anim_appearing;
+                	animation-duration: 1s;
+                	animation-timing-function: cubic-bezier(0.49, 0.06, 0.13, 0.95) 0.7s;
+            display: block;
+		}
+
+		.last {
+    		z-index: 5;
+        	-webkit-animation-name: anim_leaving;
+        	-webkit-animation-duration: 0.794s;
+        	-webkit-animation-timing-function: cubic-bezier(0.49, 0.06, 0.13, 0.95);
+                	animation-name: anim_leaving;
+                	animation-duration: 0.794s;
+                	animation-timing-function: cubic-bezier(0.49, 0.06, 0.13, 0.95);
+            -webkit-transform: scale(1) translateX(-1366px);
+                    transform: scale(1) translateX(-1366px);
+            display: block;
+		}
+		
+		.appearing img {
+            opacity: 1;
+        	-webkit-animation-name: img_opacity;
+        	-webkit-animation-duration: 1.05s;
+        	-webkit-animation-timing-function: linear;
+                	animation-name: img_opacity;
+                	animation-duration: 1.05s;
+                	animation-timing-function: linear;
+		}
+		
+		.leaving {
+		    z-index: 2;
+        	-webkit-animation-name: anim_leaving;
+        	-webkit-animation-duration: 0s;
+        	-webkit-animation-timing-function: cubic-bezier(0.49, 0.06, 0.13, 0.95);
+                	animation-name: anim_leaving;
+                	animation-duration: 0s;
+                	animation-timing-function: cubic-bezier(0.49, 0.06, 0.13, 0.95);
+            -webkit-transform: scale(0.9) translateX(0px);
+                    transform: scale(0.9) translateX(0px);
+		}
+		
+	</style>
+</head>
+<body>
+	<div class="container">
+    	<a href="#">
+            <div class="galery">
+                <div class="img_01 appearing" >
+               		<img src="01.png" />
+           		</div>
+                <div class="img_02 leaving" >
+               		<img src="02.png" />
+           		</div>
+                <div class="img_03 last" >
+               		<img src="03.png" />
+           		</div>
+       		</div>
+    	</a>
+	</div>
+	<script>
+	
+	   //  setup
+	   //  put each item in position:
+	   
+	   //  1st      x: 0px 
+	   //  x_nth    x: 0, transparency and scale 0.9 
+	   //  last     x: -1366px 
+	
+	   var order = $('.galery').children();
+	   //console.log(order);
+	   //console.log($('.galery').children().length);
+
+	   var roll = function(){
+    	   var removed = order.splice(0, 1);
+    	   order.splice(order.length,0,removed[0]);
+    	   //console.log(order);
+    	   for (var i=0; i<=order.length-1; i++) {
+        	   if( i != 0 && i != order.length-1){
+            	   $(order[i]).addClass('leaving').removeClass('appearing last');
+        	   }
+    	   }
+    	   $(order[0]).removeClass('leaving last').addClass('appearing');
+    	   $(order[order.length-1]).removeClass('leaving appearing').addClass('last');
+	   }
+
+
+	   $('.container').click(function(){
+    	   roll();
+	   });
+	   
+	   
+	</script>
+</body>
+</html>
